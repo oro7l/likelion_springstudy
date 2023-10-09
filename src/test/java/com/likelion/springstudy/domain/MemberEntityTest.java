@@ -1,5 +1,6 @@
-package com.likelion.springstudy.domain.entity;
+package com.likelion.springstudy.domain;
 
+import com.likelion.springstudy.domain.entity.MemberEntity;
 import com.likelion.springstudy.repository.MemberJpaRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.assertj.core.api.Assertions;
@@ -19,10 +20,9 @@ public class MemberEntityTest {
     void test(){
         // given
         MemberEntity member = MemberEntity.builder()
-                .id(1L)
-                .username("oro7l")
+                .id(1L) //빌더 패턴으로 했기에 파라미터 형식으로 값을 넣어줌
+                .name("oro7l")
                 .nickname("기웅시치")
-                .password("lgu6206")
                 .build();
 
         memberJpaRepository.save(member);
